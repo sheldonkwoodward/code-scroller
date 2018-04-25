@@ -9,7 +9,7 @@ def main():
     try:
         speed = argv[1]
     except IndexError:
-        speed = 100
+        speed = 10
     c = CodeScroller()
     c.scroll(speed_ms=int(speed))
 

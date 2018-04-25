@@ -4,6 +4,7 @@
 from os import getcwd, walk
 from os.path import expanduser, join
 from time import sleep
+import sys
 
 
 class CodeScroller:
@@ -23,9 +24,10 @@ class CodeScroller:
                 line = f.readline()
                 if line == '':
                     break
-                line = line.rstrip('\n')
-                print(line)
-                sleep(speed_ms * .001)
+                for c in line:
+                    sys.stdout.write(c)
+                    sys.stdout.flush()
+                    sleep(speed_ms * .001)
             print()
             counter += 1
             f.close()
