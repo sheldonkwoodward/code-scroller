@@ -15,7 +15,7 @@ class CodeScroller:
                 if filename[-3:] == '.py':
                     self.files.append(join(root, filename))
 
-    def scroll(self):
+    def scroll(self, speed_ms=100):
         counter = 0
         while True:
             f = open(self.files[counter % len(self.files)])
@@ -25,7 +25,7 @@ class CodeScroller:
                     break
                 line = line.rstrip('\n')
                 print(line)
-                sleep(.1)
+                sleep(speed_ms * .001)
             print()
             counter += 1
             f.close()
